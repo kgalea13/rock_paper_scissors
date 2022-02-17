@@ -1,11 +1,15 @@
- /* 4th line: I established my function and set it with the parameter of userInput. 
-  5th line: However the user typed their answer in, I wanted the letter characters to be all lower case so this code */ 
+  /* 1st line: I established my function and set it with the parameter of userInput. */
+  userInput = userInput.toLowerCase();
+/*2nd line: However the user typed their answer in, I wanted the letter characters to be all lower case so this code */ 
 
-const getUserChoice = userInput =>{
-userInput = userInput.toLowerCase();
-
+ 
+ 
+ const getUserChoice = userInput =>{
   if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
     return userInput;
+  }
+  else if (userInput === 'bomb') {
+    return userInput + ' - You automatically win!'
   }
   else {
     console.log(`Error: You did not pick 'rock', 'paper', 'scissors' choose again.`);
@@ -64,6 +68,19 @@ const determineWinner = (userChoice, computerChoice) => {
     } 
 }
 
-/*pass in 2 arguments into the function to see what the result is. I will be updating this game to include more advanced functionality.*/
+const playGame = () =>{
+  const userChoice = getUserChoice('rock');
+  const computerChoice = getComputerChoice();
+  console.log('You threw: ' + userChoice);
+  console.log('The computer threw: ' + computerChoice);
+  console.log(determineWinner(userChoice, computerChoice));
+};
 
-console.log(determineWinner('rock', 'paper'));
+/*To play game, pass in either: rock, paper, or scissors into the function getUserChoice() in the playGame() function and call console.log(playGame()); 
+
+The last function prints the determineWinner() function from above to the console to call the winner.
+
+There is a cheat code built in, so when the user chooses 'bomb' the user will automatically win.*/
+
+console.log(playGame());
+
